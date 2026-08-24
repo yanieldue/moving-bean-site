@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Buy me a coffee</title>
+<meta name="description" content="Support Bean with a one-time tip. Totally optional, no strings attached.">
+<meta property="og:title" content="Buy me a coffee">
+<meta property="og:description" content="Support Bean with a one-time tip. Totally optional, no strings attached.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://moving-bean.com/coffee.html">
+<script src="https://js.stripe.com/v3/"></script>
+<style>
+  :root{
+    --peach:#f3c79b;
+    --peach-deep:#eab884;
+    --cream:#fffdf3;
+    --ink:#1c1a17;
+    --muted:#6b6258;
+    --line:#1c1a17;
+    --accent:#6fae8f;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    color:var(--ink);
+    background:var(--peach);
+    line-height:1.55;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  header{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .logo{font-weight:800;font-size:22px;letter-spacing:2px;text-decoration:none;color:var(--ink)}
+  nav a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:700;margin-left:18px}
+  nav a:hover{text-decoration:underline}
+
+  .hero{text-align:center;padding:56px 0 20px}
+  .cup img{width:150px;height:auto;image-rendering:pixelated;margin:0 0 12px}
+  .hero h1{font-size:clamp(28px,6vw,46px);line-height:1.1;margin:0 0 16px;font-weight:800}
+  .hero p{font-size:clamp(16px,2.4vw,19px);color:var(--muted);max-width:520px;margin:0 auto 30px}
+
+  .columns{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start;margin:20px 0 56px}
+  @media (max-width:760px){.columns{grid-template-columns:1fr}}
+
+  .form-card{
+    background:var(--cream);border:2px solid var(--line);border-radius:18px;
+    padding:26px;box-shadow:4px 4px 0 var(--line);
+  }
+  .coffee-form{text-align:left}
+  .qty-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin-bottom:16px}
+  .qty-icon{display:flex}
+  .qty-icon img{width:36px;height:36px}
+  .qty-x{color:var(--muted);font-weight:700;margin-right:2px}
+  .qty-chip{
+    border:2px solid var(--line);background:var(--cream);border-radius:12px;
+    padding:10px 16px;font-weight:800;font-family:inherit;font-size:15px;
+    color:var(--ink);cursor:pointer;
+  }
+  .qty-chip.active{background:var(--ink);color:var(--cream)}
+  .qty-custom-input{
+    width:56px;text-align:center;-moz-appearance:textfield;
+  }
+  .qty-custom-input::-webkit-outer-spin-button,
+  .qty-custom-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .qty-custom-input::placeholder{color:var(--muted);font-weight:700}
+  .checkbox-row{
+    display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);
+    margin:2px 0 14px;cursor:pointer;
+  }
+  .checkbox-row input{width:16px;height:16px;accent-color:var(--ink);cursor:pointer}
+  .field{
+    display:block;width:100%;border:2px solid var(--line);border-radius:12px;
+    padding:12px 14px;font-family:inherit;font-size:14px;margin-bottom:10px;
+    background:var(--cream);color:var(--ink);
+  }
+  .field::placeholder{color:var(--muted)}
+  textarea.field{resize:vertical;min-height:70px}
+  .submit-btn{
+    display:block;width:100%;background:var(--ink);color:var(--cream);
+    font-weight:800;font-size:17px;padding:16px 30px;border-radius:14px;
+    border:2px solid var(--ink);box-shadow:4px 4px 0 var(--accent);
+    font-family:inherit;cursor:pointer;
+  }
+  .submit-btn:hover{transform:translate(1px,1px);box-shadow:3px 3px 0 var(--accent)}
+  .submit-btn:disabled{opacity:.6;cursor:default;transform:none;box-shadow:4px 4px 0 var(--accent)}
+  .form-error{color:#b3432b;font-size:13px;margin:0 0 10px;display:none}
+
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(28,26,23,.55);
+    display:none;align-items:center;justify-content:center;
+    z-index:1000;padding:20px;
+  }
+  .modal-overlay.open{display:flex}
+  .modal-card{
+    background:#fffdf9;color:var(--ink);border-radius:20px;
+    max-width:440px;width:100%;padding:30px 26px 22px;position:relative;
+    max-height:90vh;overflow-y:auto;text-align:left;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+  }
+  .modal-close{
+    position:absolute;top:14px;right:16px;background:none;border:none;
+    font-size:24px;line-height:1;cursor:pointer;color:var(--ink);
+    font-family:inherit;
+  }
+  .modal-icon{text-align:center;margin-bottom:8px}
+  .modal-icon img{width:100px;height:auto;image-rendering:pixelated}
+  .modal-title{text-align:center;font-size:21px;font-weight:800;margin:0 0 6px}
+  .modal-subtitle{text-align:center;color:var(--muted);font-size:14px;margin:0 0 22px}
+  .modal-divider{
+    display:flex;align-items:center;gap:10px;color:var(--muted);
+    font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:18px 0 12px;
+  }
+  .modal-divider::before,.modal-divider::after{content:"";flex:1;height:1px;background:#e5ded0}
+  #expressCheckout{min-height:0}
+  #paymentElement{margin-bottom:16px}
+  .modal-footer{text-align:center;color:var(--muted);font-size:12px;margin-top:14px}
+  .modal-footer b{color:var(--ink)}
+  .thank-you{text-align:center;padding:20px 0}
+  .thank-you .cup{margin:0 0 10px}
+  .thank-you .cup img{width:90px;height:auto;image-rendering:pixelated}
+  .thank-you h3{font-size:19px;font-weight:800;margin:0 0 8px}
+  .thank-you p{color:var(--muted);font-size:14px;margin:0}
+  .thank-you-portal{margin-top:12px !important}
+  .thank-you-portal a{color:var(--ink);font-weight:700}
+
+  .form-card h2{font-size:clamp(18px,3.4vw,22px);font-weight:800;margin:0 0 18px}
+  .about-card{margin-bottom:28px}
+  .about-card p{margin:0 0 10px;color:var(--muted);font-size:14px}
+  .about-card p:last-child{margin-bottom:0}
+  .about-card a{color:var(--ink);font-weight:700}
+  .wall-list{display:flex;flex-direction:column;gap:12px}
+  .wall-item{
+    background:var(--cream);border:2px solid var(--line);border-radius:14px;
+    padding:14px 18px;box-shadow:4px 4px 0 var(--line);
+  }
+  .wall-body{flex:1;min-width:0}
+  .wall-name{font-weight:800;font-size:14px}
+  .wall-qty{font-weight:600;color:var(--muted);font-size:13px}
+  .wall-msg{
+    display:block;background:#f0ece2;color:var(--ink);font-size:14px;
+    border-radius:12px;padding:10px 14px;margin-top:8px;
+  }
+  .wall-empty{color:var(--muted);font-size:14px;text-align:center}
+  .show-more-btn{
+    display:block;width:100%;margin-top:14px;background:none;
+    border:2px solid var(--line);border-radius:12px;padding:10px;
+    font-family:inherit;font-weight:700;font-size:14px;color:var(--ink);
+    cursor:pointer;
+  }
+  .show-more-btn:hover{background:var(--cream)}
+  .show-more-btn:disabled{opacity:.6;cursor:default}
+
+  footer{border-top:2px solid var(--line);margin-top:56px;padding:26px 0 40px;text-align:center}
+  footer a{color:var(--ink);font-weight:700;text-decoration:none;margin:0 10px}
+  footer a:hover{text-decoration:underline}
+  footer .small{color:var(--muted);font-size:13px;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="logo" href="/">BEAN</a>
+    <nav>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="cup"><img src="coffee-icon.png" alt="Bean"></div>
+    <h1>Buy me a coffee</h1>
+  </section>
+
+  <section class="columns">
+    <div class="wall-col">
+      <div class="form-card about-card">
+        <h2>About</h2>
+        <p>If you have anything you&rsquo;d like from the Bean team, please let us know at <a href="mailto:support@moving-bean.com">support@moving-bean.com</a>.</p>
+        <p>You can get the latest updates on new items and app updates fastest through Instagram <a href="https://instagram.com/moving_bean" target="_blank" rel="noopener">@moving_bean</a>.</p>
+      </div>
+
+      <div class="form-card">
+        <h2>Recent supporters</h2>
+        <div id="wallList" class="wall-list">
+          <p class="wall-empty">Loading&hellip;</p>
+        </div>
+        <button type="button" class="show-more-btn" id="showMoreBtn" style="display:none">Show more</button>
+      </div>
+    </div>
+
+    <div class="form-col">
+      <div class="form-card">
+        <form class="coffee-form" id="coffeeForm">
+          <div class="qty-row" id="qtyRow">
+            <span class="qty-icon" aria-hidden="true">
+              <img src="qty-cup-icon.png" alt="">
+            </span>
+            <span class="qty-x">&times;</span>
+            <button type="button" class="qty-chip active" data-qty="1">1</button>
+            <button type="button" class="qty-chip" data-qty="3">3</button>
+            <button type="button" class="qty-chip" data-qty="5">5</button>
+            <input type="number" class="qty-chip qty-custom-input" id="customQtyInput" min="1" max="20" placeholder="#">
+          </div>
+          <input class="field" type="text" id="supName" placeholder="Name or @yoursocial" maxlength="80">
+          <textarea class="field" id="supMessage" placeholder="Say something nice..." maxlength="280"></textarea>
+          <label class="checkbox-row"><input type="checkbox" id="supPrivate"> Make this message private</label>
+          <label class="checkbox-row"><input type="checkbox" id="supMonthly"> Make this monthly</label>
+          <p class="form-error" id="formError">Something went wrong. Please try again.</p>
+          <button type="submit" class="submit-btn" id="submitBtn">Support $5</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <a href="/">Home</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="mailto:hello@moving-bean.com">Contact</a>
+    </div>
+    <div class="small">Copyright 2026 Bean. All rights reserved.</div>
+  </footer>
+
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Close">&times;</button>
+    <div id="modalBody">
+      <div class="modal-icon"><img src="coffee-icon.png" alt="Bean"></div>
+      <h2 class="modal-title">Support <b>Bean</b></h2>
+      <p class="modal-subtitle" id="modalSubtitle">You'll be charged $15</p>
+      <div id="expressCheckout"></div>
+      <div class="modal-divider"><span>Pay with</span></div>
+      <div id="paymentElement"></div>
+      <p class="form-error" id="modalError"></p>
+      <button class="submit-btn" id="modalPayBtn" type="button">Pay</button>
+      <p class="modal-footer">Payment secured by <b>Stripe</b>. This is a one-time tip, it doesn't unlock anything in the app.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var SUPABASE_URL = "https://whhgbenbjlryklxfchzs.supabase.co";
+  var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoaGdiZW5iamxyeWtseGZjaHpzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3MzA0OTEsImV4cCI6MjA5NDMwNjQ5MX0.-klw3cZ6oVA7b-ZM-6sc2jlMKkZN1i3VJ3SNlvuzR5Y";
+  var STRIPE_PUBLISHABLE_KEY = "pk_live_51U7nusEkD5HMZXF1hMJKoJbaricTDjHRSbylCoPJmbYkiEg1sDsTfjNGSjVMKjrROlWiQ6e4RT7I9HsW3HFS0NLP00x7Pobj10";
+
+  function esc(s){
+    var d = document.createElement("div");
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  var PRICE = 5;
+  var MAX_QTY = 20;
+  var qty = 1;
+  var qtyRow = document.getElementById("qtyRow");
+  var customQtyInput = document.getElementById("customQtyInput");
+  var submitBtn = document.getElementById("submitBtn");
+  var formError = document.getElementById("formError");
+  var monthlyCheckbox = document.getElementById("supMonthly");
+
+  function updateSubmitLabel(){
+    var amount = PRICE * qty;
+    submitBtn.textContent = "Support $" + amount + (monthlyCheckbox.checked ? "/mo" : "");
+  }
+
+  monthlyCheckbox.addEventListener("change", updateSubmitLabel);
+
+  function selectPreset(btn){
+    Array.prototype.forEach.call(qtyRow.querySelectorAll(".qty-chip"), function(c){
+      c.classList.remove("active");
+    });
+    btn.classList.add("active");
+    customQtyInput.value = "";
+    qty = parseInt(btn.getAttribute("data-qty"), 10);
+    updateSubmitLabel();
+  }
+
+  qtyRow.addEventListener("click", function(e){
+    var btn = e.target.closest("button.qty-chip");
+    if (!btn) return;
+    selectPreset(btn);
+  });
+
+  customQtyInput.addEventListener("focus", function(){
+    Array.prototype.forEach.call(qtyRow.querySelectorAll("button.qty-chip"), function(c){
+      c.classList.remove("active");
+    });
+  });
+  customQtyInput.addEventListener("input", function(){
+    var v = Math.max(1, Math.min(MAX_QTY, Math.trunc(Number(customQtyInput.value)) || 1));
+    qty = v;
+    updateSubmitLabel();
+  });
+  updateSubmitLabel();
+
+  // ---- Payment modal (Stripe Elements: Express Checkout + Payment Element) ----
+  var stripe = null;
+  var elements = null;
+  var overlay = document.getElementById("modalOverlay");
+  var modalBody = document.getElementById("modalBody");
+  var modalSubtitle = document.getElementById("modalSubtitle");
+  var modalError = document.getElementById("modalError");
+  var modalPayBtn = document.getElementById("modalPayBtn");
+  var modalCloseBtn = document.getElementById("modalClose");
+
+  function ensureStripe(){
+    if (!stripe) stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+    return stripe;
+  }
+
+  function closeModal(){
+    overlay.classList.remove("open");
+    elements = null;
+  }
+  modalCloseBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", function(e){
+    if (e.target === overlay) closeModal();
+  });
+
+  var pendingCustomerId = null;
+  var pendingRecurring = false;
+
+  function confirmPayment(){
+    modalError.style.display = "none";
+    modalPayBtn.disabled = true;
+    modalPayBtn.textContent = "Processing…";
+    stripe.confirmPayment({ elements: elements, redirect: "if_required" })
+      .then(function(result){
+        if (result.error) {
+          modalError.textContent = result.error.message || "Payment failed. Please try again.";
+          modalError.style.display = "block";
+          modalPayBtn.disabled = false;
+          modalPayBtn.textContent = "Pay";
+        } else {
+          showThankYou();
+        }
+      });
+  }
+  modalPayBtn.addEventListener("click", confirmPayment);
+
+  function showThankYou(){
+    modalBody.innerHTML = '<div class="thank-you"><div class="cup"><img src="coffee-icon.png" alt="Bean"></div>' +
+      '<h3>Thank you!</h3><p>Your support means a lot. This page will refresh shortly.</p>' +
+      '<p class="thank-you-portal" id="thankYouPortal"></p></div>';
+    if (pendingRecurring && pendingCustomerId) {
+      fetch(SUPABASE_URL + "/functions/v1/coffee_portal_session", {
+        method: "POST",
+        headers: {
+          "apikey": SUPABASE_ANON_KEY,
+          "Authorization": "Bearer " + SUPABASE_ANON_KEY,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ customerId: pendingCustomerId })
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var portalEl = document.getElementById("thankYouPortal");
+        if (portalEl && data && data.url) {
+          portalEl.innerHTML = '<a href="' + data.url + '">Manage your monthly support</a>';
+        } else if (portalEl) {
+          portalEl.textContent = "Email support@moving-bean.com anytime to change or cancel your monthly support.";
+        }
+      })
+      .catch(function(){
+        var portalEl = document.getElementById("thankYouPortal");
+        if (portalEl) portalEl.textContent = "Email support@moving-bean.com anytime to change or cancel your monthly support.";
+      });
+    }
+    setTimeout(function(){ window.location.reload(); }, 6000);
+  }
+
+  function openModal(clientSecret, amount, recurring, customerId){
+    pendingRecurring = !!recurring;
+    pendingCustomerId = customerId || null;
+    var dollars = amount / 100;
+    modalSubtitle.textContent = recurring ? ("You’ll be charged $" + dollars + "/month") : ("You'll be charged $" + dollars);
+    ensureStripe();
+    elements = stripe.elements({ clientSecret: clientSecret, appearance: { theme: "stripe" } });
+
+    var expressCheckout = elements.create("expressCheckout");
+    expressCheckout.mount("#expressCheckout");
+    expressCheckout.on("confirm", confirmPayment);
+
+    var paymentElement = elements.create("payment");
+    paymentElement.mount("#paymentElement");
+
+    overlay.classList.add("open");
+  }
+
+  document.getElementById("coffeeForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    formError.style.display = "none";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Loading…";
+
+    fetch(SUPABASE_URL + "/functions/v1/coffee_checkout", {
+      method: "POST",
+      headers: {
+        "apikey": SUPABASE_ANON_KEY,
+        "Authorization": "Bearer " + SUPABASE_ANON_KEY,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        quantity: qty,
+        name: document.getElementById("supName").value,
+        message: document.getElementById("supMessage").value,
+        isPrivate: document.getElementById("supPrivate").checked,
+        recurring: monthlyCheckbox.checked
+      })
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if (data && data.clientSecret) {
+        openModal(data.clientSecret, data.amount, data.recurring, data.customerId);
+      } else {
+        throw new Error("no clientSecret");
+      }
+    })
+    .catch(function(){
+      formError.style.display = "block";
+    })
+    .then(function(){
+      submitBtn.disabled = false;
+      updateSubmitLabel();
+    });
+  });
+
+  var WALL_BATCH = 5;
+  var WALL_CAP = 20;
+  var wallList = document.getElementById("wallList");
+  var showMoreBtn = document.getElementById("showMoreBtn");
+  var wallLoaded = 0;
+
+  function renderWallRow(row){
+    var name = row.name ? esc(row.name) : "Someone";
+    var coffees = row.quantity + (row.quantity > 1 ? " coffees" : " coffee");
+    var msg = row.message ? '<span class="wall-msg">' + esc(row.message) + "</span>" : "";
+    return '<div class="wall-item"><div class="wall-body">' +
+      '<span class="wall-name">' + name + "</span>" +
+      '<span class="wall-qty"> bought ' + coffees + ".</span>" +
+      msg +
+      "</div></div>";
+  }
+
+  function loadWallBatch(){
+    var limit = Math.min(WALL_BATCH, WALL_CAP - wallLoaded);
+    showMoreBtn.disabled = true;
+    showMoreBtn.textContent = "Loading…";
+    fetch(SUPABASE_URL + "/rest/v1/coffee_supporters_wall?select=name,message,amount_cents,quantity,created_at&order=created_at.desc&limit=" + limit + "&offset=" + wallLoaded, {
+      headers: { "apikey": SUPABASE_ANON_KEY, "Authorization": "Bearer " + SUPABASE_ANON_KEY }
+    })
+    .then(function(r){ return r.ok ? r.json() : []; })
+    .then(function(rows){
+      if (wallLoaded === 0) wallList.innerHTML = "";
+      if (wallLoaded === 0 && (!rows || !rows.length)) {
+        wallList.innerHTML = '<p class="wall-empty">Be the first to buy Bean a coffee.</p>';
+        showMoreBtn.style.display = "none";
+        return;
+      }
+      wallList.insertAdjacentHTML("beforeend", (rows || []).map(renderWallRow).join(""));
+      wallLoaded += rows.length;
+      var canLoadMore = rows.length === limit && wallLoaded < WALL_CAP;
+      showMoreBtn.style.display = canLoadMore ? "block" : "none";
+      showMoreBtn.disabled = false;
+      showMoreBtn.textContent = "Show more";
+    })
+    .catch(function(){
+      if (wallLoaded === 0) wallList.innerHTML = '<p class="wall-empty">Couldn’t load supporters right now.</p>';
+      showMoreBtn.style.display = "none";
+    });
+  }
+
+  showMoreBtn.addEventListener("click", loadWallBatch);
+  loadWallBatch();
+})();
+</script>
+</body>
+</html>
