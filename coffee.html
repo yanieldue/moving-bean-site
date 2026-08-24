@@ -41,7 +41,15 @@
   .hero p{font-size:clamp(16px,2.4vw,19px);color:var(--muted);max-width:520px;margin:0 auto 30px}
 
   .columns{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start;margin:20px 0 56px}
-  @media (max-width:760px){.columns{grid-template-columns:1fr}}
+  .about-card{grid-column:1;grid-row:1}
+  .wall-card{grid-column:1;grid-row:2}
+  .checkout-card{grid-column:2;grid-row:1 / span 2}
+  @media (max-width:760px){
+    .columns{grid-template-columns:1fr}
+    .about-card{grid-column:1;grid-row:auto;order:3}
+    .wall-card{grid-column:1;grid-row:auto;order:2}
+    .checkout-card{grid-column:1;grid-row:auto;order:1}
+  }
 
   .form-card{
     background:var(--cream);border:2px solid var(--line);border-radius:18px;
@@ -125,7 +133,22 @@
   .thank-you-portal a{color:var(--ink);font-weight:700}
 
   .form-card h2{font-size:clamp(18px,3.4vw,22px);font-weight:800;margin:0 0 18px}
-  .about-card{margin-bottom:28px}
+  .checkout-heading{display:flex;align-items:center;gap:8px}
+  .info-wrap{position:relative;display:inline-flex}
+  .info-btn{
+    width:20px;height:20px;border-radius:50%;border:2px solid var(--line);
+    background:var(--cream);color:var(--ink);font-family:inherit;font-weight:800;
+    font-size:12px;line-height:1;cursor:pointer;padding:0;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .info-tooltip{
+    display:none;position:absolute;top:28px;left:0;z-index:10;
+    width:240px;background:var(--ink);color:var(--cream);
+    font-size:12px;font-weight:400;line-height:1.5;
+    padding:10px 12px;border-radius:10px;
+    box-shadow:4px 4px 0 var(--accent);
+  }
+  .info-wrap.open .info-tooltip{display:block}
   .about-card p{margin:0 0 10px;color:var(--muted);font-size:14px}
   .about-card p:last-child{margin-bottom:0}
   .about-card a{color:var(--ink);font-weight:700}
@@ -169,28 +192,31 @@
 
   <section class="hero">
     <div class="cup"><img src="coffee-icon.png" alt="Bean"></div>
-    <h1>Buy me a coffee</h1>
   </section>
 
   <section class="columns">
-    <div class="wall-col">
-      <div class="form-card about-card">
-        <h2>About</h2>
-        <p>If you have anything you&rsquo;d like from the Bean team, please let us know at <a href="mailto:support@moving-bean.com">support@moving-bean.com</a>.</p>
-        <p>You can get the latest updates on new items and app updates fastest through Instagram <a href="https://instagram.com/moving_bean" target="_blank" rel="noopener">@moving_bean</a>.</p>
-      </div>
-
-      <div class="form-card">
-        <h2>Recent supporters</h2>
-        <div id="wallList" class="wall-list">
-          <p class="wall-empty">Loading&hellip;</p>
-        </div>
-        <button type="button" class="show-more-btn" id="showMoreBtn" style="display:none">Show more</button>
-      </div>
+    <div class="form-card about-card">
+      <h2>About</h2>
+      <p>If you have anything you&rsquo;d like from the Bean team, please let us know at <a href="mailto:support@moving-bean.com">support@moving-bean.com</a>.</p>
+      <p>You can get the latest updates on new items and app updates fastest through Instagram <a href="https://instagram.com/moving_bean" target="_blank" rel="noopener">@moving_bean</a>.</p>
     </div>
 
-    <div class="form-col">
-      <div class="form-card">
+    <div class="form-card wall-card">
+      <h2>Recent supporters</h2>
+      <div id="wallList" class="wall-list">
+        <p class="wall-empty">Loading&hellip;</p>
+      </div>
+      <button type="button" class="show-more-btn" id="showMoreBtn" style="display:none">Show more</button>
+    </div>
+
+    <div class="form-card checkout-card">
+        <h2 class="checkout-heading">
+          Buy Bean a coffee
+          <span class="info-wrap">
+            <button type="button" class="info-btn" id="infoBtn" aria-label="What is this?">?</button>
+            <span class="info-tooltip" id="infoTooltip">Bean is free, and Lettuce is always earned by moving, never bought. A coffee here is a totally optional tip to support development, it doesn&rsquo;t unlock anything in the app.</span>
+          </span>
+        </h2>
         <form class="coffee-form" id="coffeeForm">
           <div class="qty-row" id="qtyRow">
             <span class="qty-icon" aria-hidden="true">
@@ -209,7 +235,6 @@
           <p class="form-error" id="formError">Something went wrong. Please try again.</p>
           <button type="submit" class="submit-btn" id="submitBtn">Support $5</button>
         </form>
-      </div>
     </div>
   </section>
 
@@ -269,6 +294,16 @@
   }
 
   monthlyCheckbox.addEventListener("change", updateSubmitLabel);
+
+  var infoBtn = document.getElementById("infoBtn");
+  var infoWrap = infoBtn.closest(".info-wrap");
+  infoBtn.addEventListener("click", function(e){
+    e.stopPropagation();
+    infoWrap.classList.toggle("open");
+  });
+  document.addEventListener("click", function(e){
+    if (!infoWrap.contains(e.target)) infoWrap.classList.remove("open");
+  });
 
   function selectPreset(btn){
     Array.prototype.forEach.call(qtyRow.querySelectorAll(".qty-chip"), function(c){
