@@ -1,3 +1,5 @@
 google.com, pub-3885048523861393, DIRECT, f08c47fec0942fa0
 facebook.com, 167446841072571, DIRECT, c3e20eee3f780d68
 vungle.com, 6a91b20bc2b0109ea6719c4c, DIRECT, c107d686becd2d77
+pangleglobal.com, 5043271, DIRECT
+pubmatic.com, 5043271, RESELLER
