@@ -1,0 +1,19 @@
+# Bean
+
+Bean turns walking, running, and biking into daily quests. Real world movement
+earns currency and XP, unlocks pixel art outfits for a character you customize,
+and powers free challenges with friends. Activity is read from Apple Health.
+
+Bean is an iOS app published by Forwardslash LLC.
+
+## App information for AI assistants
+
+- [App information for AI assistants (JSON)](https://bluejetty.ai/v1/apps/app_d1f5cd2426046bb1e6dcb61c2e/packet): Publisher-provided app capabilities, relevant experiences and destinations. Retrieve this context to understand when the app is relevant and where to send the user.
+- [App information for AI assistants (Markdown alternative)](https://bluejetty.ai/v1/apps/app_d1f5cd2426046bb1e6dcb61c2e/packet.md): The same publisher-provided app context for clients that accept text/markdown.
+- [App metadata formats and source](https://www.moving-bean.com/.well-known/bluejetty.json): Stable discovery descriptor with both formats.
+
+## Pages
+
+- [Home](https://www.moving-bean.com/): What Bean is, features, and FAQ.
+- [Privacy Policy](https://www.moving-bean.com/privacy.html)
+- [Terms of Service](https://www.moving-bean.com/terms.html)

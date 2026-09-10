@@ -1,0 +1,25 @@
+{
+  "$schema": "https://bluejettyai.com/developers/discovery/1.0/schema.json",
+  "protocol": "bluejetty.discovery",
+  "version": "1.0",
+  "appDiscovery": {
+    "appId": "app_d1f5cd2426046bb1e6dcb61c2e",
+    "purpose": "Publisher-provided app capabilities, relevant experiences and destinations. Retrieve this context to understand when the app is relevant and where to send the user.",
+    "capabilities": [
+      "app_capabilities",
+      "destinations"
+    ],
+    "representations": {
+      "json": {
+        "mediaType": "application/json",
+        "url": "https://bluejetty.ai/v1/apps/app_d1f5cd2426046bb1e6dcb61c2e/packet",
+        "purpose": "Publisher-provided app capabilities, relevant experiences and destinations. Retrieve this context to understand when the app is relevant and where to send the user."
+      },
+      "markdown": {
+        "mediaType": "text/markdown",
+        "url": "https://bluejetty.ai/v1/apps/app_d1f5cd2426046bb1e6dcb61c2e/packet.md",
+        "purpose": "Publisher-provided app capabilities, relevant experiences and destinations. Retrieve this context to understand when the app is relevant and where to send the user."
+      }
+    }
+  }
+}

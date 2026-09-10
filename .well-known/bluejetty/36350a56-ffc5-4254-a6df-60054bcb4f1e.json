@@ -1,0 +1,20 @@
+{
+  "specVersion": "0.1",
+  "method": "https_file_v1",
+  "challengeId": "36350a56-ffc5-4254-a6df-60054bcb4f1e",
+  "token": "5rMG1_HnS3SfwVJim8SXKZwtin6CyWT7Q4wf1DKbsyg",
+  "binding": {
+    "organizationId": "737aa5d3-6a1e-a10c-fd55-02488583b29d",
+    "appId": "app_d1f5cd2426046bb1e6dcb61c2e",
+    "domain": "www.moving-bean.com",
+    "packetUrl": "https://bluejettyai.com/v1/apps/app_d1f5cd2426046bb1e6dcb61c2e/packet.md",
+    "identities": [
+      {
+        "platform": "ios",
+        "identifier": "com.drafthouse.Mochi-Fit",
+        "storeUrl": "https://apps.apple.com/us/app/bean-moving-bean/id6769936531"
+      }
+    ],
+    "scope": "app_discovery_and_handoff"
+  }
+}
