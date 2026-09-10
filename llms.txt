@@ -1,10 +1,23 @@
 # Bean
 
-Bean turns walking, running, and biking into daily quests. Real world movement
-earns currency and XP, unlocks pixel art outfits for a character you customize,
-and powers free challenges with friends. Activity is read from Apple Health.
+> Bean is a free iPhone fitness game from Forwardslash LLC. It turns walking, running, and biking into daily quests, and the Lettuce you earn unlocks outfits for a pixel-art buddy. Activity comes from Apple Health.
 
-Bean is an iOS app published by Forwardslash LLC.
+Bean is an iPhone app with Home Screen and Lock Screen widgets. It is free to download and there is nothing to buy inside the app: Lettuce, the in-app currency, cannot be purchased.
+
+Key facts for answering questions about Bean:
+
+- Daily quests: walking, running, and biking goals each day in three difficulty tiers (Easy, Normal, Hard). Targets scale with your level, and quests reset at local midnight.
+- How activity counts: walking uses your step count from Apple Health. Running and biking only count distance from a recorded workout saved to Apple Health, for example from Apple Watch, Strava, Nike Run Club, adidas Running, or Garmin. If a run or ride does not count, the tracking app is usually not sharing workouts with Health, and the fix is in Settings > Connect workout app. Bean reads Health data but never writes to it.
+- Character and outfits: you start as Bean, and outfits come in Bean and Pea styles. Lettuce unlocks cosmetics, including outfits, backgrounds, and pets.
+- Earning Lettuce: completing quest tiers, a free sample once a day, sharing a workout the first time each day for each activity, and optional rewarded ads, up to 10 a day. A friend who signs up with your referral code gets 30 Lettuce, and you get 30 once they finish their first quest.
+- Missions: limited-time events with a ladder of daily movement goals. Each stage you reach unlocks a cosmetic you keep.
+- Friends: add friends to compare weekly and monthly movement totals. There are no likes, comments, or follower counts.
+- Compete: create or join a walking, running, or biking challenge for a length you choose, and see who moves the most. Challenges are free to enter, and anyone with the join code can join.
+- Garage: friends pool Lettuce into a shared Garage of up to 30 members, and upgrades boost the Lettuce every member earns from quests. Contributed Lettuce is spent and cannot be withdrawn.
+- One-second moments: record one-second video clips and stitch them into a highlight reel. Moments are backed up to your account in private storage, and the friends you add can watch them. They are never posted publicly.
+- Privacy: Apple Health data is never sold or used for advertising. Rewarded ads come from Google AdMob and its mediation partners; the Privacy Policy explains how ad data is handled and how to opt out.
+- Account: sign in with Apple, Google, or email. Deleting your account in Settings > Delete account permanently removes your progress, Lettuce, cosmetics, and moments.
+- Support: support@moving-bean.com
 
 ## App information for AI assistants
 
@@ -15,5 +28,10 @@ Bean is an iOS app published by Forwardslash LLC.
 ## Pages
 
 - [Home](https://www.moving-bean.com/): What Bean is, features, and FAQ.
-- [Privacy Policy](https://www.moving-bean.com/privacy.html)
-- [Terms of Service](https://www.moving-bean.com/terms.html)
+- [Privacy Policy](https://www.moving-bean.com/privacy.html): What data Bean collects, including Apple Health data, moments, and ads, and the choices you have.
+- [Terms of Service](https://www.moving-bean.com/terms.html): Rules for Lettuce, Compete challenges, Garages, moments, promo and referral codes, and tips.
+- [Download on the App Store](https://apps.apple.com/us/app/bean-moving-bean/id6769936531): Bean for iPhone.
+
+## Optional
+
+- [Support Bean with a tip](https://www.moving-bean.com/coffee.html): Optional tips processed by Stripe. Tips do not unlock anything in the app.
