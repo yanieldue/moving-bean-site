@@ -46,6 +46,39 @@
   }
   .badge .sub{display:block;font-size:11px;font-weight:600;opacity:.7;letter-spacing:1px;margin-top:2px}
 
+  /* Pea and Bean flanking the download button */
+  .stage{
+    display:grid;
+    grid-template-columns:auto auto auto;
+    align-items:center;
+    justify-content:center;
+    justify-items:center;
+    gap:clamp(12px,4vw,44px);
+  }
+  .stage .badge{grid-column:2;grid-row:1}
+  .stage .buddy{
+    width:clamp(84px,17vw,132px);
+    height:auto;
+    image-rendering:pixelated;
+    image-rendering:crisp-edges;
+    animation:bob 3.6s ease-in-out infinite;
+  }
+  .stage .pea{grid-column:1;grid-row:1}
+  .stage .bean{grid-column:3;grid-row:1;animation-delay:-1.8s}
+  @keyframes bob{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-7px)}
+  }
+  @media (max-width:600px){
+    .stage{grid-template-columns:auto auto;gap:22px clamp(24px,12vw,64px)}
+    .stage .badge{grid-column:1 / -1;grid-row:1}
+    .stage .pea{grid-column:1;grid-row:2}
+    .stage .bean{grid-column:2;grid-row:2}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .stage .buddy{animation:none}
+  }
+
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:40px 0}
   .card{
     background:var(--cream);border:2px solid var(--line);border-radius:18px;
@@ -87,7 +120,11 @@
   <section class="hero">
     <h1>A little buddy you dress up by moving.</h1>
     <p>Bean turns your everyday steps, walks, runs, and rides into daily quests to complete, outfits to unlock, and friendly competition with friends. No likes. No follower counts. Just movement.</p>
-    <a class="badge" href="https://apps.apple.com/us/app/bean-moving-bean/id6769936531">Download on the App Store<span class="sub">FREE ON IPHONE</span></a>
+    <div class="stage">
+      <img class="buddy pea" src="/Peep_Base.png" width="128" height="128" alt="Pea, a small yellow bird buddy" decoding="async">
+      <a class="badge" href="https://apps.apple.com/us/app/bean-moving-bean/id6769936531">Download on the App Store<span class="sub">FREE ON IPHONE</span></a>
+      <img class="buddy bean" src="/Bean_Base.png" width="128" height="128" alt="Bean, a small brown capybara buddy" decoding="async">
+    </div>
   </section>
 
   <section class="block" id="features">
