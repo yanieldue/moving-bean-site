@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found: Bean</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  :root{
+    --peach:#f3c79b;
+    --peach-deep:#eab884;
+    --cream:#fffdf3;
+    --ink:#1c1a17;
+    --muted:#6b6258;
+    --line:#1c1a17;
+    --accent:#6fae8f;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    color:var(--ink);
+    background:var(--peach);
+    line-height:1.55;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  header{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .logo{font-weight:800;font-size:22px;letter-spacing:2px}
+  nav a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:700;margin-left:18px}
+  nav a:hover{text-decoration:underline}
+
+  .hero{text-align:center;padding:48px 0 36px}
+  .hero h1{font-size:clamp(30px,6vw,52px);line-height:1.1;margin:0 0 16px;font-weight:800}
+  .hero p{font-size:clamp(16px,2.4vw,20px);color:var(--muted);max-width:620px;margin:0 auto 28px}
+  .badge{
+    display:inline-flex;align-items:center;gap:12px;text-align:left;
+    background:var(--ink);color:var(--cream);
+    font-weight:800;font-size:15px;padding:11px 20px;border-radius:14px;
+    border:2px solid var(--ink);text-decoration:none;
+  }
+  .badge .icon{
+    width:40px;height:40px;flex:none;border-radius:9px;
+    image-rendering:pixelated;
+    image-rendering:crisp-edges;
+  }
+  .badge .sub{display:block;font-size:11px;font-weight:600;opacity:.7;letter-spacing:1px;margin-top:2px}
+  @media (max-width:400px){
+    .badge{font-size:12px;padding:10px 14px;gap:9px}
+    .badge .icon{width:32px;height:32px;border-radius:7px}
+    .badge .sub{font-size:10px;letter-spacing:.5px}
+  }
+
+  /* Pea and Bean flanking the download button */
+  .stage{
+    display:grid;
+    grid-template-columns:auto auto auto;
+    align-items:center;
+    justify-content:center;
+    justify-items:center;
+    gap:clamp(12px,4vw,44px);
+  }
+  .stage .badge{grid-column:2;grid-row:1}
+  .stage .buddy{
+    width:clamp(84px,17vw,132px);
+    height:auto;
+    image-rendering:pixelated;
+    image-rendering:crisp-edges;
+    animation:bob 3.6s ease-in-out infinite;
+  }
+  .stage .pea{grid-column:1;grid-row:1}
+  .stage .bean{grid-column:3;grid-row:1;animation-delay:-1.8s}
+  @keyframes bob{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-7px)}
+  }
+  @media (max-width:600px){
+    .stage{grid-template-columns:auto auto;gap:22px clamp(24px,12vw,64px)}
+    .stage .badge{grid-column:1 / -1;grid-row:1}
+    .stage .pea{grid-column:1;grid-row:2}
+    .stage .bean{grid-column:2;grid-row:2}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .stage .buddy{animation:none}
+  }
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:40px 0}
+  .card{
+    background:var(--cream);border:2px solid var(--line);border-radius:18px;
+    padding:22px;box-shadow:4px 4px 0 var(--line);
+  }
+  .card h3{margin:0 0 8px;font-size:18px;font-weight:800}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+
+  section.block{padding:30px 0}
+  section.block h2{font-size:clamp(22px,4vw,30px);font-weight:800;text-align:center;margin:0 0 8px}
+  section.block .lead{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 8px}
+
+  .faq{max-width:680px;margin:0 auto}
+  .faq details{
+    background:var(--cream);border:2px solid var(--line);border-radius:14px;
+    padding:14px 18px;margin-bottom:12px;
+  }
+  .faq summary{font-weight:800;cursor:pointer;font-size:16px}
+  .faq p{color:var(--muted);font-size:15px;margin:10px 0 2px}
+
+  footer{border-top:2px solid var(--line);margin-top:40px;padding:26px 0 40px;text-align:center}
+  footer a{color:var(--ink);font-weight:700;text-decoration:none;margin:0 10px}
+  footer a:hover{text-decoration:underline}
+  footer .small{color:var(--muted);font-size:13px;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">BEAN</div>
+    <nav>
+      <a href="/#features">Features</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Page not found</h1>
+    <p>The page you were looking for is not here. It may have moved, or the link may be mistyped.</p>
+    <a class="badge" href="/">Go to the homepage</a>
+  </section>
+
+  <footer>
+    <div>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="mailto:support@moving-bean.com">Contact</a>
+    </div>
+    <div class="small">
+      <a rel="describedby" type="application/json" href="https://bluejetty.ai/v1/apps/app_d1f5cd2426046bb1e6dcb61c2e/packet">Official App Information for AI Assistants</a>
+    </div>
+    <div class="small">Copyright 2026 Bean. All rights reserved.</div>
+  </footer>
+
+</div>
+</body>
+</html>
