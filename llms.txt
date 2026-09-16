@@ -6,10 +6,10 @@ Bean is an iPhone app with Home Screen and Lock Screen widgets. It is free to do
 
 Key facts for answering questions about Bean:
 
-- Daily quests: walking, running, and biking goals each day in three difficulty tiers (Easy, Normal, Hard). Targets scale with your level, and quests reset at local midnight.
+- Daily quests: walking, running, and biking goals each day in three difficulty tiers (Easy, Normal, Hard). The targets are fixed and the same for every player, and do not change as you level up: walking is 5,000, 10,000, or 15,000 steps, running is 2.5, 5, or 10 km (1.5, 3, or 6 miles), and biking is 5, 15, or 30 km (3, 9.5, or 18.5 miles). Quests reset at local midnight.
 - How activity counts: walking uses your step count from Apple Health. Running and biking only count distance from a recorded workout saved to Apple Health, for example from Apple Watch, Strava, Nike Run Club, adidas Running, or Garmin. If a run or ride does not count, the tracking app is usually not sharing workouts with Health, and the fix is in Settings > Connect workout app. Bean reads Health data but never writes to it.
 - Character and cosmetics: play as Bean or Pea, and switch any time in Settings > Character. Beans unlock cosmetics: hats, hair, eyewear, face items, tops, bottoms, backgrounds, and pets.
-- Stars: your buddy has a star bar of up to 7 stars, gaining one for each day you complete a quest tier and losing one for each missed day. With 3 or more stars you earn 1.5x Beans from quests, and a full bar earns 2x; this stacks with a Treehouse boost. Friends and Treehouse members can see your stars.
+- Stars: your buddy has a star bar of up to 7 stars. Finishing a Normal or Hard quest gains a star that day, finishing only Easy holds the bar where it is, and a day with nothing finished loses one. With 3 or more stars you earn 1.5x Beans from quests, and a full bar earns 2x; this stacks with a Treehouse boost. Friends and Treehouse members can see your stars.
 - Earning Beans: completing quest tiers, a free sample once a day, sharing a workout the first time each day for each activity, and optional rewarded ads, up to 10 a day. A friend who signs up with your referral code gets 30 Beans, and you get 30 once they finish their first quest.
 - Missions: limited-time events with a ladder of daily movement goals. Each stage you reach unlocks a cosmetic you keep.
 - Friends: add friends to compare weekly and monthly movement totals. There are no likes, comments, or follower counts.
