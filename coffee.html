@@ -67,7 +67,7 @@
   .coffee-form{text-align:left}
   .qty-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin-bottom:16px}
   .qty-icon{display:flex}
-  .qty-icon img{width:36px;height:36px}
+  .qty-icon img{width:31px;height:31px;image-rendering:pixelated}
   .qty-x{color:var(--muted);font-weight:700;margin-right:2px}
   .qty-chip{
     border:2px solid var(--line);background:var(--cream);border-radius:12px;
@@ -121,7 +121,7 @@
     font-family:inherit;
   }
   .modal-icon{text-align:center;margin-bottom:8px}
-  .modal-icon img{width:100px;height:auto;image-rendering:pixelated}
+  .modal-icon img{width:93px;height:auto;image-rendering:pixelated}
   .modal-title{text-align:center;font-size:21px;font-weight:800;margin:0 0 6px}
   .modal-subtitle{text-align:center;color:var(--muted);font-size:14px;margin:0 0 22px}
   .modal-divider{
@@ -135,7 +135,7 @@
   .modal-footer b{color:var(--ink)}
   .thank-you{text-align:center;padding:20px 0}
   .thank-you .cup{margin:0 0 10px}
-  .thank-you .cup img{width:90px;height:auto;image-rendering:pixelated}
+  .thank-you .cup img{width:93px;height:auto;image-rendering:pixelated}
   .thank-you h3{font-size:19px;font-weight:800;margin:0 0 8px}
   .thank-you p{color:var(--muted);font-size:14px;margin:0}
   .thank-you-portal{margin-top:12px !important}
@@ -225,7 +225,7 @@
         <form class="coffee-form" id="coffeeForm">
           <div class="qty-row" id="qtyRow">
             <span class="qty-icon" aria-hidden="true">
-              <img src="qty-cup-icon.png" alt="">
+              <img src="coffee.png" alt="">
             </span>
             <span class="qty-x">&times;</span>
             <button type="button" class="qty-chip active" data-qty="1">1</button>
@@ -259,7 +259,7 @@
   <div class="modal-card">
     <button class="modal-close" id="modalClose" type="button" aria-label="Close">&times;</button>
     <div id="modalBody">
-      <div class="modal-icon"><img src="coffee-icon.png" alt="Bean"></div>
+      <div class="modal-icon"><img src="coffee.png" alt="Coffee"></div>
       <h2 class="modal-title">Support <b>Bean</b></h2>
       <p class="modal-subtitle" id="modalSubtitle">You'll be charged $15</p>
       <div id="expressCheckout"></div>
@@ -384,7 +384,7 @@
   modalPayBtn.addEventListener("click", confirmPayment);
 
   function showThankYou(){
-    modalBody.innerHTML = '<div class="thank-you"><div class="cup"><img src="coffee-icon.png" alt="Bean"></div>' +
+    modalBody.innerHTML = '<div class="thank-you"><div class="cup"><img src="coffee.png" alt="Coffee"></div>' +
       '<h3>Thank you!</h3><p>Your support means a lot. This page will refresh shortly.</p>' +
       '<p class="thank-you-portal" id="thankYouPortal"></p></div>';
     if (pendingRecurring && pendingCustomerId) {
