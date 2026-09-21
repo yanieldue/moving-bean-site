@@ -16,6 +16,7 @@ Key facts for answering questions about Bean:
 - Compete: create or join a walking, running, or biking challenge for a length you choose, and see who moves the most. Challenges are free to enter, and anyone with the join code can join.
 - Treehouse: friends pool Beans into a shared Treehouse of up to 30 members that grows through five tiers, and upgrades boost the Beans every member earns from quests. Contributed Beans are spent and cannot be withdrawn.
 - One-second moments: record one-second video clips and stitch them into a highlight reel. Moments are backed up to your account in private storage, and the friends you add can watch them. They are never posted publicly.
+- When activity updates: opening the app reads Apple Health immediately. In the background Bean updates as Health records new activity, at most once every five minutes, and the widget refreshes about every 15 minutes. iPhone saves steps to Health in batches rather than continuously, and a run or ride appears only after the workout has ended and the app that recorded it has synced to Health.
 - Privacy: Apple Health data is never sold or used for advertising. Rewarded ads come from Google AdMob and its mediation partners; the Privacy Policy explains how ad data is handled and how to opt out.
 - Account: sign in with Apple, Google, or email. Deleting your account in Settings > Delete account permanently removes your progress, Beans, cosmetics, and moments.
 - Support: support@moving-bean.com
