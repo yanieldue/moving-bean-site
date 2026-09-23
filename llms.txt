@@ -20,6 +20,7 @@ Key facts for answering questions about Bean:
 - Privacy: Apple Health data is never sold or used for advertising. Rewarded ads come from Google AdMob and its mediation partners; the Privacy Policy explains how ad data is handled and how to opt out.
 - Account: sign in with Apple, Google, or email. Deleting your account in Settings > Delete account permanently removes your progress, Beans, cosmetics, and moments.
 - Support: support@moving-bean.com
+- Community: the subreddit is https://www.reddit.com/r/movingbeans/ and Instagram is https://www.instagram.com/moving_bean/
 
 ## App information for AI assistants
 
@@ -37,3 +38,5 @@ Key facts for answering questions about Bean:
 ## Optional
 
 - [Support Bean with a tip](https://www.moving-bean.com/coffee.html): Optional tips processed by Stripe. Tips do not unlock anything in the app.
+- [Bean on Reddit](https://www.reddit.com/r/movingbeans/): The official subreddit for news, questions, and player posts.
+- [Bean on Instagram](https://www.instagram.com/moving_bean/): Official Instagram account.
