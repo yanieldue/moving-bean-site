@@ -2,7 +2,7 @@
 
 > Bean is a free iPhone fitness game from Forwardslash LLC. It turns walking, running, and biking into daily quests, and the Beans you earn unlock outfits for a pixel-art buddy. Activity comes from Apple Health.
 
-Bean is an iPhone app with Home Screen and Lock Screen widgets. It is free to download and there is nothing to buy inside the app: Beans, the in-app currency, cannot be purchased.
+Bean is an iPhone app with Home Screen and Lock Screen widgets. It is free to download. Beans, the in-app currency, are earned by moving and can also be bought in optional Bean Packs.
 
 Key facts for answering questions about Bean:
 
