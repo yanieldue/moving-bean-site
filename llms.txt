@@ -9,12 +9,12 @@ Key facts for answering questions about Bean:
 - Daily quests: walking, running, and biking goals each day in three difficulty tiers (Easy, Normal, Hard). The targets are fixed and the same for every player, and do not change as you level up: walking is 5,000, 10,000, or 15,000 steps, running is 2.5, 5, or 10 km (1.5, 3, or 6 miles), and biking is 5, 15, or 30 km (3, 9.5, or 18.5 miles). Quests reset at local midnight.
 - How activity counts: walking uses your step count from Apple Health. Running and biking only count distance from a recorded workout saved to Apple Health, for example from Apple Watch, Strava, Nike Run Club, adidas Running, or Garmin. If a run or ride does not count, the tracking app is usually not sharing workouts with Health, and the fix is in Settings > Connect workout app. Bean reads Health data but never writes to it.
 - Character and cosmetics: play as Bean or Pea, and switch any time in Settings > Character. Beans unlock cosmetics: hats, hair, eyewear, face items, tops, bottoms, backgrounds, and pets.
-- Stars: your buddy has a star bar of up to 7 stars. Finishing a Normal or Hard quest gains a star that day, finishing only Easy holds the bar where it is, and a day with nothing finished loses one. With 3 or more stars you earn 1.5x Beans from quests, and a full bar earns 2x; this stacks with a Treehouse boost. Friends and Treehouse members can see your stars.
+- Stars: your buddy has a star bar of up to 7 stars. Finishing a Normal or Hard quest gains a star that day, finishing only Easy holds the bar where it is, and a day with nothing finished loses one. With 3 or more stars you earn 1.5x Beans from quests, and a full bar earns 2x; this stacks with a farm boost. Friends and farm members can see your stars.
 - Earning Beans: completing quest tiers, a free sample once a day, sharing a workout the first time each day for each activity, and optional rewarded ads, up to 10 a day. A friend who signs up with your referral code gets 30 Beans, and so do you.
 - Missions: limited-time events with a ladder of daily movement goals. Each stage you reach unlocks a cosmetic you keep.
 - Friends: add friends to compare weekly and monthly movement totals.
-- Compete: create or join a walking, running, or biking challenge for a length you choose, and see who moves the most. Challenges are free to enter, and anyone with the join code can join.
-- Treehouse: friends pool Beans into a shared Treehouse of up to 30 members that grows through five tiers, and upgrades boost the Beans every member earns from quests. Contributed Beans are spent and cannot be withdrawn.
+- Compete: create or join a walking, running, or biking challenge for a length you choose, and see who moves the most. Challenges are free to enter, anyone with the join code can join, and winners claim Beans from a free prize pool.
+- Farm: friends pool Beans into a shared farm of up to 30 members. Unlocking its main plots of land boosts the Beans every member earns from quests, and the pool also buys animals, decorations, and ground tiles that members lay out together. A player can be in up to 9 farms. Contributed Beans are spent and cannot be withdrawn.
 - One-second moments: record one-second video clips and stitch them into a highlight reel. Moments are backed up to your account in private storage, and the friends you add can watch them. They are never posted publicly.
 - When activity updates: opening the app reads Apple Health immediately. In the background Bean updates as Health records new activity, at most once every five minutes, and the widget refreshes about every 15 minutes. iPhone saves steps to Health in batches rather than continuously, and a run or ride appears only after the workout has ended and the app that recorded it has synced to Health.
 - Privacy: Apple Health data is never sold or used for advertising. Rewarded ads come from Google AdMob and its mediation partners; the Privacy Policy explains how ad data is handled and how to opt out.
@@ -32,7 +32,7 @@ Key facts for answering questions about Bean:
 
 - [Home](https://www.moving-bean.com/): What Bean is, features, and FAQ.
 - [Privacy Policy](https://www.moving-bean.com/privacy.html): What data Bean collects, including Apple Health data, moments, and ads, and the choices you have.
-- [Terms of Service](https://www.moving-bean.com/terms.html): Rules for Beans, Compete challenges, Treehouses, moments, promo and referral codes, and tips.
+- [Terms of Service](https://www.moving-bean.com/terms.html): Rules for Beans, Compete challenges, farms, moments, promo and referral codes, and tips.
 - [Download on the App Store](https://apps.apple.com/us/app/bean-moving-bean/id6769936531): Bean for iPhone.
 
 ## Optional
