@@ -34,7 +34,7 @@ Key facts for answering questions about Bean:
 
 - [Home](https://www.moving-bean.com/): What Bean is, features, and FAQ.
 - [Privacy Policy](https://www.moving-bean.com/privacy.html): What data Bean collects, including Apple Health data, moments, and ads, and the choices you have.
-- [Terms of Service](https://www.moving-bean.com/terms.html): Rules for Beans, Compete challenges, farms, moments, promo and referral codes, and tips.
+- [Terms of Service](https://www.moving-bean.com/terms.html): Rules for Beans, Compete challenges, farms, moments, referral codes, and tips.
 - [Download on the App Store](https://apps.apple.com/us/app/bean-moving-bean/id6769936531): Bean for iPhone.
 
 ## Optional
