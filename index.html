@@ -264,7 +264,7 @@
     border-left:13px solid var(--ink);border-top:8px solid transparent;border-bottom:8px solid transparent;
   }
   /* Both store buttons share one grid track, so they are always the same size. */
-  .hero .cta,.cta-row{display:grid;grid-template-columns:max-content;grid-auto-rows:1fr;gap:14px}
+  .hero .cta,.cta-row{display:grid;grid-template-columns:max-content;grid-auto-rows:1fr;gap:22px 18px}
   .cta-row{grid-template-columns:repeat(2,max-content);justify-content:center}
   @media (max-width:420px){ .cta-row{grid-template-columns:max-content} }
   @media (max-width:400px){ .badge .play{width:32px;height:32px;border-radius:7px} .badge .play::after{left:11px;top:7px} }
@@ -279,7 +279,13 @@
     background:#fff;color:#000;border:1.5px solid #000;text-decoration:none;
     font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
   }
-  .store.soon .bell{flex:none}
+  .store.soon{position:relative}
+  .store.soon .gp{flex:none;width:26px;height:29px;margin-right:2px}
+  .store.soon .tag{
+    position:absolute;top:-11px;right:-12px;
+    background:var(--butter);color:#000;border:1.5px solid #000;border-radius:999px;
+    font:800 8.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.6px;padding:4px 7px;
+  }
   .store.soon small{display:block;font-size:8.5px;font-weight:600;letter-spacing:.3px;line-height:1.15}
   .store.soon b{display:block;font-size:18.5px;font-weight:600;letter-spacing:-.5px;line-height:1.1}
 
@@ -533,7 +539,7 @@
         <p class="lead">Bean turns your everyday steps, walks, runs, and rides into daily quests to complete, outfits to unlock, and friendly competition with friends.</p>
         <div class="cta">
           <a class="store" href="https://apps.apple.com/us/app/bean-moving-bean/id6769936531"><img src="/assets/app-store-badge.svg" width="162" height="54" alt="Download on the App Store"></a>
-          <a class="store soon" href="/android.html" aria-label="Coming soon to Google Play. Join the waitlist"><svg class="bell" viewBox="0 0 24 24" width="23" height="23" aria-hidden="true"><path d="M12 2.5a1.5 1.5 0 0 1 1.5 1.5v.6a6.5 6.5 0 0 1 5 6.4v4.3l1.8 2.4a.8.8 0 0 1-.6 1.3H4.3a.8.8 0 0 1-.6-1.3l1.8-2.4V11a6.5 6.5 0 0 1 5-6.4V4A1.5 1.5 0 0 1 12 2.5Zm-2.6 17h5.2a2.6 2.6 0 0 1-5.2 0Z" fill="currentColor"/></svg><span><small>COMING SOON TO</small><b>Google Play</b></span></a>
+          <a class="store soon" href="/android.html" aria-label="Coming soon to Google Play. Join the waitlist"><img class="gp" src="/assets/google-play-icon.svg" width="26" height="29" alt=""><span><small>COMING SOON TO</small><b>Google Play</b></span><span class="tag">JOIN THE WAITLIST</span></a>
         </div>
       </div>
       <div class="phone-wrap">
@@ -811,7 +817,7 @@
       <p>Free on iPhone. Bring your steps, we bring the outfits.</p>
       <div class="cta-row">
         <a class="store" href="https://apps.apple.com/us/app/bean-moving-bean/id6769936531"><img src="/assets/app-store-badge.svg" width="162" height="54" alt="Download on the App Store"></a>
-        <a class="store soon" href="/android.html" aria-label="Coming soon to Google Play. Join the waitlist"><svg class="bell" viewBox="0 0 24 24" width="23" height="23" aria-hidden="true"><path d="M12 2.5a1.5 1.5 0 0 1 1.5 1.5v.6a6.5 6.5 0 0 1 5 6.4v4.3l1.8 2.4a.8.8 0 0 1-.6 1.3H4.3a.8.8 0 0 1-.6-1.3l1.8-2.4V11a6.5 6.5 0 0 1 5-6.4V4A1.5 1.5 0 0 1 12 2.5Zm-2.6 17h5.2a2.6 2.6 0 0 1-5.2 0Z" fill="currentColor"/></svg><span><small>COMING SOON TO</small><b>Google Play</b></span></a>
+        <a class="store soon" href="/android.html" aria-label="Coming soon to Google Play. Join the waitlist"><img class="gp" src="/assets/google-play-icon.svg" width="26" height="29" alt=""><span><small>COMING SOON TO</small><b>Google Play</b></span><span class="tag">JOIN THE WAITLIST</span></a>
       </div>
     </div>
     <div class="walkers" aria-hidden="true">
