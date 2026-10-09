@@ -1,14 +1,19 @@
 {
   "specVersion": "0.1",
   "method": "https_file_v1",
-  "challengeId": "36350a56-ffc5-4254-a6df-60054bcb4f1e",
-  "token": "5rMG1_HnS3SfwVJim8SXKZwtin6CyWT7Q4wf1DKbsyg",
+  "challengeId": "23c3317b-2881-42aa-8751-9da68263bdef",
+  "token": "EnJteq6eOzuM52KkDUYSZxiQ6W21r6yIyQyNQyrXGn4",
   "binding": {
     "organizationId": "737aa5d3-6a1e-a10c-fd55-02488583b29d",
     "appId": "app_d1f5cd2426046bb1e6dcb61c2e",
     "domain": "www.moving-bean.com",
     "packetUrl": "https://bluejettyai.com/v1/apps/app_d1f5cd2426046bb1e6dcb61c2e/packet.md",
     "identities": [
+      {
+        "platform": "android",
+        "identifier": "com.drafthouse.bean",
+        "storeUrl": "https://play.google.com/store/apps/details?id=com.drafthouse.bean"
+      },
       {
         "platform": "ios",
         "identifier": "com.drafthouse.Mochi-Fit",
