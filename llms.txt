@@ -1,8 +1,8 @@
 # Bean
 
-> Bean is a free iPhone fitness game from Forwardslash LLC. It turns walking, running, and biking into daily quests, and the Beans you earn unlock outfits for a pixel-art buddy. Activity comes from Apple Health.
+> Bean is a free fitness game for iPhone and Android from Forwardslash LLC. It turns walking, running, and biking into daily quests, and the Beans you earn unlock outfits for a pixel-art buddy. Activity comes from Apple Health on iPhone and Health Connect on Android.
 
-Bean is an iPhone app with Home Screen and Lock Screen widgets. It is free to download. Beans, the in-app currency, are earned by moving and can also be bought in optional Bean Packs.
+Bean is an iPhone and Android app. On iPhone it has Home Screen and Lock Screen widgets, and on Android a Home Screen widget. It is free to download. Beans, the in-app currency, are earned by moving and can also be bought in optional Bean Packs.
 
 Key facts for answering questions about Bean:
 
@@ -36,6 +36,7 @@ Key facts for answering questions about Bean:
 - [Privacy Policy](https://www.moving-bean.com/privacy.html): What data Bean collects, including Apple Health data, moments, and ads, and the choices you have.
 - [Terms of Service](https://www.moving-bean.com/terms.html): Rules for Beans, Compete challenges, farms, moments, referral codes, and tips.
 - [Download on the App Store](https://apps.apple.com/us/app/bean-moving-bean/id6769936531): Bean for iPhone.
+- [Get it on Google Play](https://play.google.com/store/apps/details?id=com.drafthouse.bean): Bean for Android.
 
 ## Optional
 

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bean on Android: join the waitlist</title>
-<meta name="description" content="Bean is coming to Android. Leave your email and we will let you know when it is on Google Play.">
+<title>Bean on Android</title>
+<meta name="description" content="Bean is on Android. Get it free on Google Play.">
 <link rel="canonical" href="https://www.moving-bean.com/android.html">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -37,6 +37,11 @@
   .small{color:var(--muted);font-size:13px}
   .store{display:inline-block;width:162px;height:54px}
   .store img{display:block;width:162px;height:54px}
+  .stores{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
+  .store.gplay{display:flex;align-items:center;gap:6px;padding:0 8px 0 10px;text-align:left;white-space:nowrap;border-radius:12px;background:#fff;color:#000;border:1.5px solid #000;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+  .store.gplay .gp{flex:none;width:26px;height:29px;margin-right:2px}
+  .store.gplay small{display:block;font-size:8.5px;font-weight:600;letter-spacing:.3px;line-height:1.15}
+  .store.gplay b{display:block;font-size:18.5px;font-weight:600;letter-spacing:-.5px;line-height:1.1}
   .small a,.card a{color:var(--ink)}
   footer{background:var(--grass-deep);color:var(--cream);padding:22px 0 30px;text-align:center}
   footer a{color:var(--cream);font-weight:700;text-decoration:none;margin:0 10px}
@@ -70,27 +75,13 @@
         <img class="px" src="/pea-normal.png" width="128" height="128" alt="Pea, a small yellow bird buddy">
         <img class="px" src="/bean-normal.png" width="128" height="128" alt="Bean, a small brown capybara buddy">
       </div>
-      <span class="tag">COMING SOON ON GOOGLE PLAY</span>
-      <h1>Bean is coming to Android.</h1>
-      <p class="lead">Leave your email and we will let you know the day Bean lands on Google Play. Just one email when it is ready.</p>
-      <div class="card">
-        <p class="msg" id="bad-email">That email address doesn't look right. Please check it and try again.</p>
-        <p class="msg" id="try-again">Something went wrong on our end. Please try again in a minute.</p>
-        <form action="https://whhgbenbjlryklxfchzs.supabase.co/functions/v1/android_waitlist" method="post">
-          <label for="email">Your email</label>
-          <div class="row">
-            <input id="email" name="email" type="email" required maxlength="254" autocomplete="email" inputmode="email" placeholder="you@example.com">
-            <button type="submit">Notify me</button>
-          </div>
-          <div class="hp" aria-hidden="true">
-            <label for="company">Leave this empty</label>
-            <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
-          </div>
-        </form>
-        <p class="small" style="margin:14px 0 0">We will only use your email to tell you when Bean is on Google Play. To be removed, email <a href="mailto:support@moving-bean.com">support@moving-bean.com</a>. See our <a href="/privacy.html">Privacy Policy</a>.</p>
+      <span class="tag">NOW ON GOOGLE PLAY</span>
+      <h1>Bean is on Android.</h1>
+      <p class="lead">Bean and Pea are ready for your steps. Get Bean free on Google Play, or on the App Store if you are on iPhone.</p>
+      <div class="stores">
+        <a class="store gplay" href="https://play.google.com/store/apps/details?id=com.drafthouse.bean" aria-label="Get it on Google Play"><img class="gp" src="/assets/google-play-icon.svg" width="26" height="29" alt=""><span><small>GET IT ON</small><b>Google Play</b></span></a>
+        <a class="store" href="https://apps.apple.com/us/app/bean-moving-bean/id6769936531"><img src="/assets/app-store-badge.svg" width="162" height="54" alt="Download on the App Store"></a>
       </div>
-      <p class="small or">On iPhone? Bean is ready for you now.</p>
-      <a class="store" href="https://apps.apple.com/us/app/bean-moving-bean/id6769936531"><img src="/assets/app-store-badge.svg" width="162" height="54" alt="Download on the App Store"></a>
     </div>
   </div>
 </main>
