@@ -428,6 +428,20 @@
     .row li{justify-content:center;text-align:left}
   }
 
+  /* ---------- about ---------- */
+  .about{max-width:680px;margin:0 auto;text-align:center}
+  .about p.body{color:var(--ink);font-size:16px;margin:0 auto 14px}
+  .about .pair{display:flex;justify-content:center;align-items:flex-end;gap:12px;margin-bottom:18px}
+  .about .pair img{width:64px;height:64px}
+  .btn-coffee{
+    display:inline-flex;align-items:center;gap:10px;margin-top:12px;
+    background:var(--cream);color:var(--ink);border:2px solid var(--line);border-radius:14px;
+    padding:12px 20px;font-weight:800;font-size:15px;text-decoration:none;
+    box-shadow:4px 4px 0 var(--line);transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-coffee:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--line)}
+  .btn-coffee img{width:31px;height:31px}
+
   /* ---------- small cards ---------- */
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:34px}
   .card{
@@ -517,6 +531,7 @@
     <a class="logo" href="#top"><img class="px" src="/bean-normal.png" width="128" height="128" alt="" aria-hidden="true">BEAN</a>
     <nav>
       <a href="#features">Features</a>
+      <a href="#about">About</a>
       <a href="#faq">FAQ</a>
       <a class="hide-sm" href="/privacy.html">Privacy</a>
     </nav>
@@ -754,6 +769,19 @@
     </div>
   </section>
 
+  <section class="band mint" id="about">
+    <div class="wrap about">
+      <div class="pair"><img class="px" src="/bean-normal.png" width="128" height="128" alt="" aria-hidden="true"><img class="px" src="/pea-normal.png" width="128" height="128" alt="" aria-hidden="true"></div>
+      <p class="kicker">About us</p>
+      <h2>Small steps, every day.</h2>
+      <p class="body">A lot of people think getting fit or losing weight means intense workouts and strict diets. So they go all in, burn out a few weeks later, and feel like they failed.</p>
+      <p class="body">We do not think that is how it works. What actually makes the difference is consistency: a walk today, another one tomorrow, and the day after that. That is why we built Bean. A little buddy, daily quests, and friends to move with make showing up something you look forward to, not a chore.</p>
+      <p class="body"><strong>Our mission is to help people build a habit of moving that lasts.</strong></p>
+      <p class="body">If Bean has helped you move a little more and you would like to say thanks, you can buy us a coffee. It is completely optional and does not unlock anything in the app.</p>
+      <a class="btn-coffee" href="/coffee.html"><img class="px" src="/coffee.png" width="31" height="31" alt="" aria-hidden="true">Buy us a coffee</a>
+    </div>
+  </section>
+
   <div class="band cream" style="padding-top:10px">
   <section class="block" id="faq">
     <h2>Questions</h2>
@@ -840,6 +868,7 @@
       <a href="/privacy.html">Privacy Policy</a>
       <a href="/terms.html">Terms of Service</a>
       <a href="mailto:support@moving-bean.com">Contact</a>
+      <a href="/coffee.html">Buy us a coffee</a>
     </div>
     <div class="social">
       <a rel="me" href="https://discord.com/invite/PTcCqjH74B">Discord</a>
